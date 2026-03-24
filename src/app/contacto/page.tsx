@@ -85,14 +85,14 @@ export default function ContactoPage() {
                   px: 3.5,
                   border: 'none',
                   borderRadius: 1.25,
-                  backgroundColor: theme.palette.brand.brown,
+                  backgroundColor: theme.palette.brand.petroleum,
                   color: theme.palette.primary.contrastText,
                   fontSize: '0.95rem',
                   fontWeight: 500,
                   cursor: 'pointer',
                   transition: 'background-color 320ms ease',
                   '&:hover': {
-                    backgroundColor: theme.palette.brand.rose,
+                    backgroundColor: theme.palette.brand.brown,
                   },
                 })}
               >

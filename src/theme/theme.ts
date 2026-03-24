@@ -6,6 +6,7 @@ declare module '@mui/material/styles' {
       brown: string;
       beige: string;
       nude: string;
+      petroleum: string;
       rose: string;
       gray: string;
       text: string;
@@ -18,6 +19,7 @@ declare module '@mui/material/styles' {
       brown?: string;
       beige?: string;
       nude?: string;
+      petroleum?: string;
       rose?: string;
       gray?: string;
       text?: string;
@@ -31,7 +33,7 @@ export const corveraTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#734E40',
+      main: '#2F4858',
       contrastText: '#FFFFFF',
     },
     secondary: {
@@ -50,6 +52,7 @@ export const corveraTheme = createTheme({
       brown: '#734E40',
       beige: '#E4BDA4',
       nude: '#FFEEE6',
+      petroleum: '#2F4858',
       rose: '#C6707D',
       gray: '#8A7F78',
       text: '#2B2B2B',

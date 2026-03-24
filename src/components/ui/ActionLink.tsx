@@ -25,7 +25,7 @@ export default function ActionLink({
         borderRadius: 1.25,
         border: variant === 'primary' ? '1px solid transparent' : `1px solid ${theme.palette.brand.gray}`,
         backgroundColor:
-          variant === 'primary' ? theme.palette.brand.brown : theme.palette.background.paper,
+          variant === 'primary' ? theme.palette.brand.petroleum : theme.palette.background.paper,
         color: variant === 'primary' ? theme.palette.primary.contrastText : theme.palette.brand.text,
         fontSize: '0.95rem',
         fontWeight: 500,
@@ -33,7 +33,7 @@ export default function ActionLink({
         transition: 'background-color 340ms ease, color 340ms ease, border-color 340ms ease',
         '&:hover': {
           backgroundColor:
-            variant === 'primary' ? theme.palette.brand.rose : theme.palette.brand.nude,
+            variant === 'primary' ? theme.palette.brand.brown : theme.palette.brand.nude,
           borderColor: variant === 'primary' ? 'transparent' : theme.palette.brand.beige,
         },
       })}

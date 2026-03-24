@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import SiteShell from '@/layout/SiteShell';
 import ThemeRegistry from '@/theme/ThemeRegistry';
 import { SITE_CONFIG } from '@/config/site';
@@ -34,6 +36,8 @@ export default function RootLayout({
         <ThemeRegistry>
           <SiteShell>{children}</SiteShell>
         </ThemeRegistry>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

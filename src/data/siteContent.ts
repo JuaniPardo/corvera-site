@@ -125,3 +125,26 @@ export const medicalAesthetics = [
   'Bioestimulación de colágeno',
   'Protocolos de calidad de piel',
 ];
+
+export const testimonials = [
+  {
+    quote: 'Llegué con muchas dudas y me fui con un plan claro. Los resultados fueron graduales, naturales. Nadie notó "qué me hice", solo que me veía mejor.',
+    author: 'María L.',
+    treatment: 'Armonización facial',
+  },
+  {
+    quote: 'Después de años luchando con el acné, encontré un enfoque médico real. La Dra. Corvera me explicó cada paso y hoy mi piel está mejor que nunca.',
+    author: 'Carolina S.',
+    treatment: 'Acné y secuelas',
+  },
+  {
+    quote: 'Me gustó la honestidad desde la primera consulta. Me dijo qué era posible y qué no, sin venderme tratamientos innecesarios.',
+    author: 'Luciana M.',
+    treatment: 'Bioestimulación',
+  },
+  {
+    quote: 'El seguimiento post-tratamiento marca la diferencia. Sentí que estaba en manos de una profesional que realmente se preocupa por sus pacientes.',
+    author: 'Valentina R.',
+    treatment: 'Rellenos con ácido hialurónico',
+  },
+];

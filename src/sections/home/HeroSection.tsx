@@ -8,19 +8,19 @@ import SectionBlock from '@/components/ui/SectionBlock';
 
 export default function HeroSection() {
   return (
-    <SectionBlock>
+    <SectionBlock size="compact">
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', lg: 'repeat(12, minmax(0, 1fr))' },
           alignItems: 'center',
-          gap: { xs: 5, lg: 6 },
+          gap: { xs: 5.5, lg: 7 },
         }}
       >
         <Reveal>
-          <Box sx={{ gridColumn: { lg: 'span 6' }, display: 'grid', gap: 3.5 }}>
-            <Box component="h1" sx={{ ...typeStyles.h1, maxWidth: 620 }}>
-              Medicina estética con criterio médico y resultados naturales.
+          <Box sx={{ gridColumn: { lg: 'span 6' }, display: 'grid', gap: 3.25 }}>
+            <Box component="h1" sx={{ ...typeStyles.h1, maxWidth: 640 }}>
+              Dermatología y medicina estética con diagnóstico médico y resultados naturales.
             </Box>
 
             <Box
@@ -28,15 +28,15 @@ export default function HeroSection() {
               sx={(theme) => ({
                 ...(typeStyles.body1),
                 color: theme.palette.brand.gray,
-                maxWidth: 560,
+                maxWidth: 575,
               })}
             >
-              Atención personalizada, planes claros y seguimiento profesional en cada etapa del tratamiento.
+              Tratamientos personalizados, técnica conservadora y seguimiento clínico para mejorar la piel sin perder identidad.
             </Box>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
               <ActionLink href="/contacto" label="Solicitar consulta" variant="primary" />
-              <ActionLink href="/tratamientos" label="Ver tratamientos" variant="secondary" />
+              <ActionLink href="/sobre" label="Conocer enfoque médico" variant="secondary" />
             </Box>
           </Box>
         </Reveal>

@@ -8,23 +8,23 @@ export const navLinks = [
 
 export const differencials = [
   {
-    title: 'Atención personalizada',
-    description: 'Cada consulta parte de una evaluación integral y objetivos reales.',
+    title: 'Diagnóstico médico integral',
+    description: 'Historia clínica, evaluación facial y criterio dermatológico para indicar solo lo necesario.',
     icon: 'focus',
   },
   {
-    title: 'Resultados naturales',
-    description: 'La prioridad es mantener la expresión y respetar la armonía facial.',
+    title: 'Plan terapéutico personalizado',
+    description: 'Cada protocolo se define según objetivos, tiempos biológicos y antecedentes del paciente.',
     icon: 'leaf',
   },
   {
-    title: 'Seguimiento clínico',
-    description: 'El acompañamiento continúa luego del procedimiento para mayor seguridad.',
+    title: 'Técnica conservadora y natural',
+    description: 'Abordaje progresivo para preservar identidad, expresión y armonía del rostro.',
     icon: 'path',
   },
   {
-    title: 'Consultorio propio',
-    description: 'Un entorno cuidado, privado y preparado para una atención de calidad.',
+    title: 'Seguimiento clínico documentado',
+    description: 'Controles posteriores, ajustes y pautas de cuidado para sostener resultados en el tiempo.',
     icon: 'home',
   },
 ];
@@ -32,38 +32,34 @@ export const differencials = [
 export const highlightedTreatments = [
   {
     title: 'Armonización facial',
-    description: 'Evaluación de proporciones y plan progresivo para un resultado equilibrado.',
+    description: 'Diagnóstico de proporciones y plan progresivo para equilibrar rasgos con naturalidad.',
   },
   {
-    title: 'Bioestimulación',
-    description: 'Protocolos para estimular colágeno y mejorar textura con criterio médico.',
+    title: 'Acné y secuelas',
+    description: 'Control médico del proceso inflamatorio y abordaje de marcas para mejorar textura y tono.',
   },
   {
-    title: 'Toxina botulínica',
-    description: 'Abordaje preciso para suavizar líneas sin perder naturalidad.',
-  },
-  {
-    title: 'Skin quality',
-    description: 'Hidratación profunda y mejora de tono para una piel saludable.',
+    title: 'Bioestimulación de colágeno',
+    description: 'Protocolos para mejorar firmeza y calidad de piel con resultados graduales y sostenidos.',
   },
 ];
 
 export const processSteps = [
   {
-    title: 'Evaluación',
-    description: 'Escuchamos tus objetivos y analizamos antecedentes clínicos.',
+    title: 'Consulta inicial',
+    description: 'Escuchamos tus objetivos, antecedentes y contexto clínico para una evaluación completa.',
   },
   {
-    title: 'Diagnóstico',
-    description: 'Definimos prioridades y opciones terapéuticas adecuadas para vos.',
+    title: 'Diagnóstico y plan',
+    description: 'Definimos prioridades terapéuticas y una propuesta realista, con tiempos y etapas claras.',
   },
   {
-    title: 'Tratamiento',
-    description: 'Aplicamos un plan personalizado en un entorno seguro y controlado.',
+    title: 'Intervención',
+    description: 'Aplicamos el protocolo indicado con técnica médica precisa y criterios de seguridad.',
   },
   {
-    title: 'Seguimiento',
-    description: 'Monitoreamos evolución, ajustes y cuidados posteriores.',
+    title: 'Control evolutivo',
+    description: 'Monitoreamos respuesta clínica, indicamos cuidados y realizamos ajustes cuando corresponde.',
   },
 ];
 

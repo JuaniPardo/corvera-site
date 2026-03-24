@@ -3,6 +3,7 @@
 import { typeStyles } from '@/theme/typeStyles';
 import Link from 'next/link';
 import { Box } from '@mui/system';
+import { SITE_CONFIG, WHATSAPP_LINK } from '@/config/site';
 
 export default function MainFooter() {
   return (
@@ -27,7 +28,7 @@ export default function MainFooter() {
       >
         <Box sx={{ display: 'grid', gap: 1.5 }}>
           <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.35rem' }}>
-            Dra. Patricia Corvera
+            {SITE_CONFIG.name}
           </Box>
           <Box component="p" sx={{ ...typeStyles.body2, maxWidth: 320 }}>
             Medicina estética con criterio médico, resultados naturales y seguimiento personalizado.
@@ -40,13 +41,13 @@ export default function MainFooter() {
           </Box>
           <Box
             component={Link}
-            href="https://wa.me/5491122334455"
+            href={WHATSAPP_LINK}
             sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}
           >
-            WhatsApp: +54 9 11 2233 4455
+            WhatsApp: {SITE_CONFIG.contact.phone}
           </Box>
           <Box component="span" sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}>
-            contacto@dracorvera.com
+            {SITE_CONFIG.contact.email}
           </Box>
         </Box>
 
@@ -55,10 +56,10 @@ export default function MainFooter() {
             Dirección
           </Box>
           <Box component="span" sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}>
-            Av. Del Libertador 3450, CABA
+            {SITE_CONFIG.location.address}
           </Box>
           <Box component="span" sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}>
-            Consultorio privado
+            {SITE_CONFIG.location.city}, {SITE_CONFIG.location.country}
           </Box>
         </Box>
 
@@ -67,10 +68,10 @@ export default function MainFooter() {
             Horarios
           </Box>
           <Box component="span" sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}>
-            Lunes a Viernes: 10:00 a 19:00
+            {SITE_CONFIG.hours.weekdays}
           </Box>
           <Box component="span" sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}>
-            Sábados: 10:00 a 13:00
+            {SITE_CONFIG.hours.saturday}
           </Box>
         </Box>
       </Box>

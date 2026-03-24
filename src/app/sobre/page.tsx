@@ -63,8 +63,7 @@ export default function SobrePage() {
                   Historia
                 </Box>
                 <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-                  Realizó su formación médica y residencia en pediatría en la Universidad de Buenos Aires. Luego orientó su formación hacia la dermatología y la medicina estética, incorporando nuevas herramientas para tratamientos personalizados.
-                </Box>
+                  Inició su formación médica en Bolivia y continuó su desarrollo profesional en Argentina, donde realizó su residencia en pediatría en la Universidad de Buenos Aires y consolidó su experiencia en el ámbito hospitalario.                </Box>
               </Box>
             </Box>
           </Reveal>

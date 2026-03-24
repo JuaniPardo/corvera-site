@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import { navLinks } from '@/data/siteContent';
+import { SITE_CONFIG } from '@/config/site';
 
 export default function MainHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,7 +41,7 @@ export default function MainHeader() {
             letterSpacing: '0.01em',
           })}
         >
-          Dra. Patricia Corvera
+          {SITE_CONFIG.name}
         </Box>
 
         <Box

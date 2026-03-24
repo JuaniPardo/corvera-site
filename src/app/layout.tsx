@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import SiteShell from '@/layout/SiteShell';
 import ThemeRegistry from '@/theme/ThemeRegistry';
+import { SITE_CONFIG } from '@/config/site';
 import './globals.css';
 
 const bodyFont = Inter({
@@ -17,9 +18,9 @@ const headingFont = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Dra. Patricia Corvera | Medicina Estética',
+  title: `${SITE_CONFIG.name} | Medicina Estética`,
   description:
-    'Sitio oficial de la Dra. Patricia Corvera: medicina estética con criterio médico, resultados naturales y seguimiento profesional.',
+    `Sitio oficial de ${SITE_CONFIG.name}: medicina estética con criterio médico, resultados naturales y seguimiento profesional.`,
 };
 
 export default function RootLayout({

@@ -7,6 +7,7 @@ import FormField from '@/components/forms/FormField';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 import PageHeading from '@/sections/shared/PageHeading';
+import { SITE_CONFIG, WHATSAPP_LINK } from '@/config/site';
 
 export default function ContactoPage() {
   return (
@@ -41,14 +42,17 @@ export default function ContactoPage() {
               <Box component="h2" sx={{ ...typeStyles.h2, fontSize: '2rem' }}>
                 Vías de contacto
               </Box>
-              <Box component={Link} href="https://wa.me/5491122334455" sx={(theme) => ({ color: theme.palette.brand.brown, fontWeight: 500 })}>
-                WhatsApp: +54 9 11 2233 4455
+              <Box component={Link} href={WHATSAPP_LINK} sx={(theme) => ({ color: theme.palette.brand.brown, fontWeight: 500 })}>
+                WhatsApp: {SITE_CONFIG.contact.phone}
               </Box>
               <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-                Dirección: Av. Del Libertador 3450, CABA
+                Email: {SITE_CONFIG.contact.email}
               </Box>
               <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-                Horarios: Lunes a Viernes de 10:00 a 19:00, Sábados de 10:00 a 13:00.
+                Dirección: {SITE_CONFIG.location.address}, {SITE_CONFIG.location.city}, {SITE_CONFIG.location.country}
+              </Box>
+              <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
+                Horarios: {SITE_CONFIG.hours.weekdays}. {SITE_CONFIG.hours.saturday}.
               </Box>
             </Box>
           </Reveal>

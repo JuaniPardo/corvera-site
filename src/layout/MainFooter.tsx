@@ -20,10 +20,10 @@ export default function MainFooter() {
           width: '100%',
           maxWidth: 1200,
           px: { xs: 3, sm: 4, md: 6 },
-          py: { xs: 8, md: 9 },
+          py: { xs: 4, md: 5 },
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))', lg: '1.2fr 1fr 1fr 1fr' },
-          gap: 4,
+          gap: { xs: 2.5, md: 3 },
         }}
       >
         <Box sx={{ display: 'grid', gap: 1.5 }}>

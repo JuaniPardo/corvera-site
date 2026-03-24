@@ -71,9 +71,19 @@ export default function ContactoPage() {
                   fontSize: '0.95rem',
                   fontWeight: 500,
                   cursor: 'pointer',
-                  transition: 'background-color 320ms ease',
+                  boxShadow: `0 10px 22px ${alpha(theme.palette.brand.petroleum, 0.22)}`,
+                  transition: 'background-color 260ms ease, transform 220ms ease, box-shadow 260ms ease',
+                  '&:focus-visible': {
+                    outline: 'none',
+                    boxShadow: `0 0 0 3px ${alpha(theme.palette.brand.nude, 0.95)}`,
+                  },
                   '&:hover': {
                     backgroundColor: theme.palette.brand.brown,
+                    transform: 'translateY(-1px)',
+                    boxShadow: `0 14px 26px ${alpha(theme.palette.brand.petroleum, 0.26)}`,
+                  },
+                  '&:active': {
+                    transform: 'translateY(0)',
                   },
                 })}
               >
@@ -93,6 +103,7 @@ export default function ContactoPage() {
                 border: `1px solid ${theme.palette.brand.beige}`,
                 backgroundColor: theme.palette.background.default,
                 minHeight: { lg: 520 },
+                boxShadow: `0 10px 22px ${alpha(theme.palette.brand.petroleum, 0.1)}`,
               })}
             >
               <Box component="h2" sx={{ ...typeStyles.h2, fontSize: '1.75rem' }}>

@@ -2,6 +2,7 @@
 
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
+import { alpha } from '@mui/material/styles';
 import ActionLink from '@/components/ui/ActionLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
@@ -32,7 +33,7 @@ export default function TreatmentsSection() {
           {highlightedTreatments.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.04}>
               <Box
-                sx={{
+                sx={(theme) => ({
                   display: 'grid',
                   gap: 1.2,
                   p: { xs: 2.6, md: 2.9 },
@@ -41,7 +42,14 @@ export default function TreatmentsSection() {
                   borderColor: 'brand.beige',
                   backgroundColor: 'background.paper',
                   minHeight: 210,
-                }}
+                  transition: 'transform 220ms ease, box-shadow 240ms ease',
+                  '@media (hover: hover)': {
+                    '&:hover': {
+                      transform: 'scale(1.012)',
+                      boxShadow: `0 18px 32px ${alpha(theme.palette.brand.petroleum, 0.15)}`,
+                    },
+                  },
+                })}
               >
                 <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
                   {item.category}
@@ -58,9 +66,22 @@ export default function TreatmentsSection() {
         </Box>
 
         <Reveal delay={0.1}>
-          <Box sx={{ pt: 0.75, display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+          <Box
+            sx={{
+              pt: 0.75,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 1.35,
+              p: { xs: 1.2, md: 1.35 },
+              borderRadius: 1.5,
+              border: 1,
+              borderColor: 'brand.beige',
+              backgroundColor: 'background.paper',
+              width: 'fit-content',
+            }}
+          >
+            <ActionLink href="/contacto" label="Quiero una consulta médica" variant="primary" />
             <ActionLink href="/tratamientos" label="Explorar todos los tratamientos" variant="secondary" />
-            <ActionLink href="/contacto" label="Quiero una consulta médica" variant="secondary" />
           </Box>
         </Reveal>
       </Box>

@@ -2,6 +2,7 @@
 
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
+import { alpha } from '@mui/material/styles';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 import LineIcon from '@/components/ui/LineIcon';
@@ -32,7 +33,7 @@ export default function DifferentialsSection() {
           {differencials.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.04}>
               <Box
-                sx={{
+                sx={(theme) => ({
                   display: 'grid',
                   gap: 1.1,
                   p: { xs: 2.6, md: 3.1 },
@@ -41,7 +42,14 @@ export default function DifferentialsSection() {
                   borderColor: 'brand.beige',
                   backgroundColor: 'background.paper',
                   minHeight: 182,
-                }}
+                  transition: 'transform 220ms ease, box-shadow 240ms ease',
+                  '@media (hover: hover)': {
+                    '&:hover': {
+                      transform: 'scale(1.012)',
+                      boxShadow: `0 16px 28px ${alpha(theme.palette.brand.petroleum, 0.11)}`,
+                    },
+                  },
+                })}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
                   <LineIcon name={item.icon} />

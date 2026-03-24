@@ -2,6 +2,7 @@
 
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
+import { alpha } from '@mui/material/styles';
 import ActionLink from '@/components/ui/ActionLink';
 import LineIcon from '@/components/ui/LineIcon';
 import Reveal from '@/components/ui/Reveal';
@@ -93,7 +94,7 @@ export default function TratamientosPage() {
               {clinicalDermatology.map((item, index) => (
                 <Box
                   key={item}
-                  sx={{
+                  sx={(theme) => ({
                     display: 'grid',
                     gridTemplateColumns: { xs: '1fr', md: '68px minmax(0, 280px) minmax(0, 1fr)' },
                     alignItems: { md: 'center' },
@@ -104,7 +105,14 @@ export default function TratamientosPage() {
                     borderRadius: 1.5,
                     backgroundColor: 'background.paper',
                     minHeight: { md: 138 },
-                  }}
+                    transition: 'transform 220ms ease, box-shadow 240ms ease',
+                    '@media (hover: hover)': {
+                      '&:hover': {
+                        transform: 'scale(1.01)',
+                        boxShadow: `0 15px 28px ${alpha(theme.palette.brand.petroleum, 0.1)}`,
+                      },
+                    },
+                  })}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'space-between', md: 'center' }, gap: 2 }}>
                     <LineIcon name={clinicalDescriptions[item].icon} />
@@ -154,7 +162,7 @@ export default function TratamientosPage() {
               {medicalAesthetics.map((item, index) => (
                 <Box
                   key={item}
-                  sx={{
+                  sx={(theme) => ({
                     display: 'grid',
                     gap: 1.05,
                     p: { xs: 2.25, md: 2.5 },
@@ -162,7 +170,14 @@ export default function TratamientosPage() {
                     borderColor: 'brand.beige',
                     borderRadius: 1.5,
                     backgroundColor: 'background.default',
-                  }}
+                    transition: 'transform 220ms ease, box-shadow 240ms ease',
+                    '@media (hover: hover)': {
+                      '&:hover': {
+                        transform: 'scale(1.012)',
+                        boxShadow: `0 16px 30px ${alpha(theme.palette.brand.petroleum, 0.11)}`,
+                      },
+                    },
+                  })}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
                     <LineIcon name={aestheticsDescriptions[item].icon} />

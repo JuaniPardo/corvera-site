@@ -82,6 +82,7 @@ export default function SobrePage() {
                   border: 1,
                   borderColor: 'brand.beige',
                   backgroundColor: 'background.paper',
+                  boxShadow: 3,
                 }}
               />
               <Box
@@ -100,6 +101,7 @@ export default function SobrePage() {
                   border: 1,
                   borderColor: 'brand.beige',
                   backgroundColor: 'background.paper',
+                  boxShadow: 2,
                 }}
               />
             </Box>
@@ -139,6 +141,13 @@ export default function SobrePage() {
                     display: 'grid',
                     gap: 1.25,
                     minHeight: 168,
+                    transition: 'transform 220ms ease, box-shadow 240ms ease',
+                    '@media (hover: hover)': {
+                      '&:hover': {
+                        transform: 'scale(1.012)',
+                        boxShadow: 4,
+                      },
+                    },
                   }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

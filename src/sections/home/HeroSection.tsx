@@ -31,7 +31,7 @@ export default function HeroSection() {
               boxShadow: { md: `0 20px 44px ${alpha(theme.palette.brand.petroleum, 0.11)}` },
             })}
           >
-            <Box component="h1" sx={{ ...typeStyles.h1, maxWidth: 680, fontSize: 'clamp(2.24rem, 4.9vw, 4.15rem)' }}>
+            <Box component="h1" sx={{ ...typeStyles.h1, maxWidth: 680, fontSize: 'clamp(2.55rem, 5.6vw, 4.7rem)' }}>
               Resultados naturales para tu piel, con criterio médico en cada decisión.
             </Box>
 

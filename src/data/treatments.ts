@@ -6,6 +6,7 @@ export interface Treatment {
   category: 'dermatologia' | 'estetica';
   categoryLabel: string;
   icon: LineIconName;
+  image?: string; // URL de imagen representativa del tratamiento
   shortDescription: string;
   fullDescription: string;
   benefits: string[];
@@ -26,6 +27,7 @@ export const treatments: Treatment[] = [
     category: 'dermatologia',
     categoryLabel: 'Dermatología clínica',
     icon: 'focus',
+    image: '/images/treatments/acne.jpg',
     shortDescription: 'Abordaje integral para controlar inflamación y tratar marcas residuales.',
     fullDescription:
       'El acné es una condición inflamatoria crónica que requiere un enfoque médico integral. Combinamos tratamientos tópicos, orales cuando corresponde, y procedimientos específicos para controlar brotes activos y mejorar las secuelas como cicatrices y manchas post-inflamatorias.',
@@ -64,6 +66,7 @@ export const treatments: Treatment[] = [
     category: 'dermatologia',
     categoryLabel: 'Dermatología clínica',
     icon: 'leaf',
+    image: '/images/treatments/rosacea.jpg',
     shortDescription: 'Plan médico para reducir episodios inflamatorios y reforzar barrera cutánea.',
     fullDescription:
       'La rosácea y las dermatitis son condiciones inflamatorias crónicas que afectan la calidad de vida. Nuestro enfoque combina tratamiento médico, cuidado de la barrera cutánea y educación sobre factores desencadenantes para lograr una piel más estable y menos reactiva.',
@@ -102,6 +105,7 @@ export const treatments: Treatment[] = [
     category: 'dermatologia',
     categoryLabel: 'Dermatología clínica',
     icon: 'home',
+    image: '/images/treatments/lunares.jpg',
     shortDescription: 'Evaluación periódica de lesiones pigmentadas y otras alteraciones cutáneas.',
     fullDescription:
       'El control dermatológico regular permite detectar cambios en lunares y lesiones cutáneas de forma temprana. Utilizamos dermatoscopía digital para documentar y comparar lesiones en el tiempo, identificando aquellas que requieren seguimiento más cercano o intervención.',
@@ -140,6 +144,7 @@ export const treatments: Treatment[] = [
     category: 'dermatologia',
     categoryLabel: 'Dermatología clínica',
     icon: 'path',
+    image: '/images/treatments/melasma.jpg',
     shortDescription: 'Protocolos personalizados para despigmentar de forma gradual y sostenida.',
     fullDescription:
       'El melasma y otras hiperpigmentaciones requieren un abordaje paciente y constante. Combinamos despigmentantes tópicos, procedimientos en consultorio y fotoprotección estricta para lograr un tono más uniforme y prevenir recaídas.',
@@ -179,6 +184,7 @@ export const treatments: Treatment[] = [
     category: 'estetica',
     categoryLabel: 'Estética médica',
     icon: 'path',
+    image: '/images/treatments/armonizacion.jpg',
     shortDescription: 'Plan progresivo para mejorar proporciones sin cambios artificiales.',
     fullDescription:
       'La armonización facial es un enfoque integral que busca equilibrar proporciones y volúmenes respetando la identidad de cada paciente. Utilizamos técnicas combinadas de toxina botulínica, ácido hialurónico y bioestimuladores según un plan personalizado que prioriza resultados naturales.',
@@ -217,6 +223,7 @@ export const treatments: Treatment[] = [
     category: 'estetica',
     categoryLabel: 'Estética médica',
     icon: 'focus',
+    image: '/images/treatments/toxina.jpg',
     shortDescription: 'Aplicación precisa en dosis personalizadas según gesto y anatomía.',
     fullDescription:
       'La toxina botulínica permite suavizar líneas de expresión dinámicas manteniendo naturalidad. Utilizamos técnicas de aplicación precisas y dosis personalizadas que respetan la expresión facial, evitando el aspecto congelado o artificial.',

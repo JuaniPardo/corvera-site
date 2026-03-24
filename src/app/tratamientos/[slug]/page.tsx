@@ -296,12 +296,8 @@ export default async function TreatmentPage({
                 justifyContent: 'center',
               }}
             >
-              <ActionLink href="/contacto" variant="primary">
-                Agendar consulta
-              </ActionLink>
-              <ActionLink href="/tratamientos" variant="secondary">
-                Ver todos los tratamientos
-              </ActionLink>
+              <ActionLink href="/contacto" label="Agendar consulta" variant="primary" />
+              <ActionLink href="/tratamientos" label="Ver todos los tratamientos" variant="secondary" />
             </Box>
           </Box>
         </Reveal>

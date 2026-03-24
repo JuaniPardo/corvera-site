@@ -1,3 +1,5 @@
+export type LineIconName = 'focus' | 'leaf' | 'path' | 'home';
+
 export const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/sobre', label: 'Sobre la Dra. Patricia' },
@@ -6,25 +8,25 @@ export const navLinks = [
   { href: '/contacto', label: 'Contacto' },
 ];
 
-export const differencials = [
+export const differencials: { title: string; description: string; icon: LineIconName }[] = [
   {
     title: 'Diagnóstico médico integral',
-    description: 'Historia clínica, evaluación facial y criterio dermatológico para indicar solo lo necesario.',
+    description: 'Evaluación clínica completa antes de indicar cualquier procedimiento.',
     icon: 'focus',
   },
   {
     title: 'Plan terapéutico personalizado',
-    description: 'Cada protocolo se define según objetivos, tiempos biológicos y antecedentes del paciente.',
+    description: 'Protocolo diseñado según objetivos, tiempos biológicos y antecedentes.',
     icon: 'leaf',
   },
   {
     title: 'Técnica conservadora y natural',
-    description: 'Abordaje progresivo para preservar identidad, expresión y armonía del rostro.',
+    description: 'Resultados progresivos que respetan expresión e identidad.',
     icon: 'path',
   },
   {
     title: 'Seguimiento clínico documentado',
-    description: 'Controles posteriores, ajustes y pautas de cuidado para sostener resultados en el tiempo.',
+    description: 'Controles posteriores para ajustar y sostener resultados.',
     icon: 'home',
   },
 ];
@@ -32,14 +34,17 @@ export const differencials = [
 export const highlightedTreatments = [
   {
     title: 'Armonización facial',
+    category: 'Estética médica',
     description: 'Diagnóstico de proporciones y plan progresivo para equilibrar rasgos con naturalidad.',
   },
   {
     title: 'Acné y secuelas',
+    category: 'Dermatología clínica',
     description: 'Control médico del proceso inflamatorio y abordaje de marcas para mejorar textura y tono.',
   },
   {
     title: 'Bioestimulación de colágeno',
+    category: 'Estética médica',
     description: 'Protocolos para mejorar firmeza y calidad de piel con resultados graduales y sostenidos.',
   },
 ];
@@ -65,29 +70,44 @@ export const processSteps = [
 
 export const faqItems = [
   {
-    question: '¿La primera consulta incluye un plan de tratamiento?',
+    question: '¿Y si no sé qué tratamiento necesito?',
     answer:
-      'Sí. La consulta inicial está orientada a entender tu caso, evaluar opciones y definir un plan realista según tus objetivos.',
+      'Es normal. La primera consulta está pensada para evaluar tu caso y definir un plan médico claro según tus objetivos.',
   },
   {
-    question: '¿Los resultados se ven naturales?',
+    question: '¿Voy a verme natural después del procedimiento?',
     answer:
-      'El enfoque está centrado en resultados armónicos. Se priorizan cambios progresivos, respetando rasgos y expresividad.',
+      'Sí. El enfoque prioriza cambios progresivos, respetando rasgos, expresión y armonía facial.',
   },
   {
-    question: '¿Cuánto duran los tratamientos?',
+    question: '¿En cuánto tiempo voy a notar resultados?',
     answer:
-      'Depende del procedimiento y del metabolismo de cada paciente. Durante la consulta se explica duración estimada y frecuencia de mantenimiento.',
+      'Depende del tratamiento. En consulta se explica qué resultados son inmediatos, cuáles progresivos y los tiempos esperables.',
   },
   {
-    question: '¿Hay seguimiento después del procedimiento?',
+    question: '¿Cuánto duran los resultados y cuándo conviene mantenerlos?',
     answer:
-      'Sí. Se realiza control clínico para acompañar la evolución y ajustar indicaciones cuando sea necesario.',
+      'La duración varía según técnica, objetivo y metabolismo. Se define un esquema de mantenimiento personalizado.',
   },
   {
-    question: '¿Atienden tratamientos dermatológicos clínicos?',
+    question: '¿Qué pasa si tengo piel sensible o antecedentes dermatológicos?',
     answer:
-      'Sí. En la página de tratamientos se diferencia el abordaje de dermatología clínica y estética médica.',
+      'Se contempla desde el diagnóstico inicial. Los antecedentes clínicos guían la indicación, dosis y seguimiento.',
+  },
+];
+
+export const faqGroups = [
+  {
+    title: 'Consulta inicial',
+    items: [faqItems[0], faqItems[1]],
+  },
+  {
+    title: 'Resultados y tiempos',
+    items: [faqItems[2], faqItems[3]],
+  },
+  {
+    title: 'Seguridad médica',
+    items: [faqItems[4]],
   },
 ];
 

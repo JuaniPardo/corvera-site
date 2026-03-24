@@ -3,33 +3,71 @@
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
 import ActionLink from '@/components/ui/ActionLink';
+import LineIcon from '@/components/ui/LineIcon';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 import PageHeading from '@/sections/shared/PageHeading';
 import { clinicalDermatology, medicalAesthetics } from '@/data/siteContent';
 
-const clinicalDescriptions: Record<string, string> = {
+const clinicalDescriptions: Record<
+  string,
+  { benefit: string; description: string; icon: 'focus' | 'leaf' | 'path' | 'home' }
+> = {
   'Acné y secuelas':
-    'Abordaje integral para controlar brotes, mejorar textura y prevenir nuevas marcas.',
+    {
+      benefit: 'Menos brotes y mejor textura de piel.',
+      description: 'Abordaje integral para controlar inflamación y tratar marcas residuales.',
+      icon: 'focus',
+    },
   'Rosácea y dermatitis':
-    'Plan clínico para estabilizar la piel sensible y reducir episodios inflamatorios.',
+    {
+      benefit: 'Piel más estable y menos reactividad diaria.',
+      description: 'Plan médico para reducir episodios inflamatorios y reforzar barrera cutánea.',
+      icon: 'leaf',
+    },
   'Control de lunares y lesiones cutáneas':
-    'Evaluación médica periódica para seguimiento seguro de lesiones pigmentadas y otras alteraciones.',
+    {
+      benefit: 'Seguimiento seguro y detección temprana.',
+      description: 'Evaluación periódica de lesiones pigmentadas y otras alteraciones cutáneas.',
+      icon: 'home',
+    },
   'Melasma y pigmentaciones':
-    'Protocolos personalizados para unificar tono y sostener resultados en el tiempo.',
+    {
+      benefit: 'Tono más uniforme con plan de mantenimiento.',
+      description: 'Protocolos personalizados para despigmentar de forma gradual y sostenida.',
+      icon: 'path',
+    },
 };
 
-const aestheticsDescriptions: Record<string, string> = {
-  'Armonización facial':
-    'Plan progresivo para equilibrar proporciones manteniendo naturalidad y expresividad.',
-  'Toxina botulínica':
-    'Aplicación precisa para suavizar líneas dinámicas sin endurecer los rasgos.',
-  'Rellenos con ácido hialurónico':
-    'Reposición de volumen y definición de contornos con criterio médico.',
-  'Bioestimulación de colágeno':
-    'Estimulación gradual para mejorar firmeza, calidad y estructura de la piel.',
-  'Protocolos de calidad de piel':
-    'Combinación de técnicas para optimizar hidratación, luminosidad y textura.',
+const aestheticsDescriptions: Record<
+  string,
+  { benefit: string; description: string; icon: 'focus' | 'leaf' | 'path' | 'home' }
+> = {
+  'Armonización facial': {
+    benefit: 'Rasgos equilibrados manteniendo tu expresión.',
+    description: 'Plan progresivo para mejorar proporciones sin cambios artificiales.',
+    icon: 'path',
+  },
+  'Toxina botulínica': {
+    benefit: 'Líneas dinámicas más suaves sin rigidez.',
+    description: 'Aplicación precisa en dosis personalizadas según gesto y anatomía.',
+    icon: 'focus',
+  },
+  'Rellenos con ácido hialurónico': {
+    benefit: 'Reposición de volumen con resultado natural.',
+    description: 'Definición de contornos y soporte estructural con criterio médico.',
+    icon: 'home',
+  },
+  'Bioestimulación de colágeno': {
+    benefit: 'Más firmeza y mejor calidad de piel.',
+    description: 'Estimulación gradual para sostener resultados en el tiempo.',
+    icon: 'leaf',
+  },
+  'Protocolos de calidad de piel': {
+    benefit: 'Piel más luminosa, hidratada y pareja.',
+    description: 'Combinación de técnicas según diagnóstico y objetivos reales.',
+    icon: 'focus',
+  },
 };
 
 export default function TratamientosPage() {
@@ -37,7 +75,7 @@ export default function TratamientosPage() {
     <>
       <PageHeading
         title="Tratamientos"
-        description="Diagnóstico médico preciso y tratamientos personalizados para cuidar, corregir y armonizar la piel."
+        description="Opciones médicas personalizadas para tratar, mejorar y armonizar la piel con resultados naturales."
         compact
       />
 
@@ -47,26 +85,39 @@ export default function TratamientosPage() {
             <Box component="h2" sx={typeStyles.h2}>
               Dermatología clínica
             </Box>
-            <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 820 }}>
-              Evaluación médica para diagnóstico, tratamiento y seguimiento de condiciones cutáneas frecuentes, con foco en seguridad y evolución sostenida.
+            <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 820, mb: 0.7 }}>
+              Tratamientos para resolver problemas frecuentes de piel con diagnóstico preciso y seguimiento continuo.
             </Box>
 
-            <Box sx={{ display: 'grid', gap: { xs: 2.1, md: 2.4 } }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2.2 }}>
               {clinicalDermatology.map((item, index) => (
                 <Box
                   key={item}
                   sx={{
                     display: 'grid',
-                    gridTemplateColumns: { xs: '1fr', md: '220px minmax(0, 1fr)' },
-                    gap: { xs: 0.8, md: 3 },
-                    py: { xs: 0.5, md: 0.8 },
+                    gap: 1.05,
+                    p: { xs: 2.4, md: 2.8 },
+                    border: 1,
+                    borderColor: 'brand.beige',
+                    borderRadius: 1.5,
+                    backgroundColor: 'background.paper',
+                    minHeight: 198,
                   }}
                 >
-                  <Box component="p" sx={{ ...typeStyles.body1, fontWeight: 500, color: 'brand.text' }}>
-                    {String(index + 1).padStart(2, '0')} {item}
+                  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
+                    <LineIcon name={clinicalDescriptions[item].icon} />
+                    <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
+                      {String(index + 1).padStart(2, '0')}
+                    </Box>
+                  </Box>
+                  <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.2rem' }}>
+                    {item}
+                  </Box>
+                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.brown', fontWeight: 500 }}>
+                    {clinicalDescriptions[item].benefit}
                   </Box>
                   <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray' }}>
-                    {clinicalDescriptions[item]}
+                    {clinicalDescriptions[item].description}
                   </Box>
                 </Box>
               ))}
@@ -75,47 +126,54 @@ export default function TratamientosPage() {
         </Reveal>
       </SectionBlock>
 
-      <SectionBlock size="tight">
-        <Box sx={{ borderTop: 1, borderColor: 'brand.beige' }} />
-      </SectionBlock>
-
-      <SectionBlock size="compact" background="background.paper">
+      <SectionBlock size="compact" background="brand.petroleum">
         <Reveal delay={0.05}>
           <Box
             sx={{
               display: 'grid',
               gap: 4,
-              p: { xs: 4, md: 6 },
+              p: { xs: 4, md: 5 },
               borderRadius: 1.5,
               border: 1,
               borderColor: 'brand.beige',
-              backgroundColor: 'background.default',
+              backgroundColor: 'background.paper',
             }}
           >
             <Box component="h2" sx={typeStyles.h2}>
               Estética médica
             </Box>
             <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 860 }}>
-              Tratamientos orientados a resultados armónicos y naturales, diseñados según proporciones faciales, calidad de piel y tiempos de cada paciente.
+              Procedimientos orientados a mejorar armonía y calidad de piel respetando proporciones y tiempos biológicos.
             </Box>
 
-            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2.75 }}>
-              {medicalAesthetics.map((item) => (
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2.2 }}>
+              {medicalAesthetics.map((item, index) => (
                 <Box
                   key={item}
                   sx={{
                     display: 'grid',
-                    gap: 0.65,
-                    py: 1.55,
-                    borderTop: 1,
+                    gap: 1.05,
+                    p: { xs: 2.25, md: 2.5 },
+                    border: 1,
                     borderColor: 'brand.beige',
+                    borderRadius: 1.5,
+                    backgroundColor: 'background.default',
                   }}
                 >
+                  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
+                    <LineIcon name={aestheticsDescriptions[item].icon} />
+                    <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
+                      {String(index + 1).padStart(2, '0')}
+                    </Box>
+                  </Box>
                   <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.2rem' }}>
                     {item}
                   </Box>
+                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.brown', fontWeight: 500 }}>
+                    {aestheticsDescriptions[item].benefit}
+                  </Box>
                   <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray' }}>
-                    {aestheticsDescriptions[item]}
+                    {aestheticsDescriptions[item].description}
                   </Box>
                 </Box>
               ))}
@@ -125,11 +183,22 @@ export default function TratamientosPage() {
       </SectionBlock>
 
       <SectionBlock size="compact">
-        <Box sx={{ display: 'grid', justifyItems: 'center', gap: 2 }}>
-          <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', textAlign: 'center', maxWidth: 640 }}>
+        <Box
+          sx={{
+            display: 'grid',
+            justifyItems: 'center',
+            gap: 2,
+            p: { xs: 3.2, md: 4.5 },
+            borderRadius: 1.7,
+            border: 1,
+            borderColor: 'brand.petroleum',
+            backgroundColor: 'brand.petroleum',
+          }}
+        >
+          <Box component="p" sx={{ ...typeStyles.body1, color: 'background.paper', textAlign: 'center', maxWidth: 680, opacity: 0.9 }}>
             Si querés definir el enfoque indicado para tu caso, coordiná una consulta de evaluación.
           </Box>
-          <ActionLink href="/contacto" label="Solicitar consulta" variant="primary" />
+          <ActionLink href="/contacto" label="Solicitar consulta personalizada" variant="secondary" />
         </Box>
       </SectionBlock>
     </>

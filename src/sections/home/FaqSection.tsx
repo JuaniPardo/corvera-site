@@ -24,7 +24,7 @@ export default function FaqSection() {
 
         <Reveal delay={0.04}>
           <Box sx={{ maxWidth: 980 }}>
-            <FaqList items={faqItems.slice(0, 4)} />
+            <FaqList items={faqItems.slice(0, 4)} defaultOpenIndex={0} />
           </Box>
         </Reveal>
       </Box>

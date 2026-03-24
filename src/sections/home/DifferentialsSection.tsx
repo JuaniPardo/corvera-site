@@ -4,6 +4,7 @@ import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
+import LineIcon from '@/components/ui/LineIcon';
 import { differencials } from '@/data/siteContent';
 
 export default function DifferentialsSection() {
@@ -21,23 +22,37 @@ export default function DifferentialsSection() {
           </Box>
         </Reveal>
 
-        <Box sx={{ display: 'grid', borderTop: 1, borderColor: 'brand.beige' }}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' },
+            gap: 2.25,
+          }}
+        >
           {differencials.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.04}>
               <Box
                 sx={{
-                  py: { xs: 2.3, md: 2.8 },
-                  borderBottom: 1,
-                  borderColor: 'brand.beige',
                   display: 'grid',
-                  gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 280px) minmax(0, 1fr)' },
-                  gap: { xs: 0.8, md: 2.5 },
+                  gap: 1.1,
+                  p: { xs: 2.6, md: 3.1 },
+                  borderRadius: 1.5,
+                  border: 1,
+                  borderColor: 'brand.beige',
+                  backgroundColor: 'background.paper',
+                  minHeight: 182,
                 }}
               >
-                <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.22rem' }}>
-                  {String(index + 1).padStart(2, '0')} {item.title}
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
+                  <LineIcon name={item.icon} />
+                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
+                    {String(index + 1).padStart(2, '0')}
+                  </Box>
                 </Box>
-                <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray', maxWidth: 760 }}>
+                <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.2rem' }}>
+                  {item.title}
+                </Box>
+                <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray', maxWidth: 440 }}>
                   {item.description}
                 </Box>
               </Box>

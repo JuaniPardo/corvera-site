@@ -7,13 +7,20 @@ export type FaqItem = {
   answer: string;
 };
 
-export default function FaqList({ items }: { items: FaqItem[] }) {
+export default function FaqList({
+  items,
+  defaultOpenIndex,
+}: {
+  items: FaqItem[];
+  defaultOpenIndex?: number;
+}) {
   return (
     <Box sx={{ display: 'grid', borderTop: 1, borderColor: 'brand.beige' }}>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <Box
           component="details"
-          key={item.question}
+          key={`${item.question}-${index}`}
+          open={defaultOpenIndex === index}
           sx={(theme) => ({
             borderBottom: `1px solid ${theme.palette.brand.beige}`,
             backgroundColor: 'transparent',

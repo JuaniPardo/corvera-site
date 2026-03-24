@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
 import { alpha } from '@mui/material/styles';
@@ -8,68 +9,7 @@ import LineIcon from '@/components/ui/LineIcon';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 import PageHeading from '@/sections/shared/PageHeading';
-import { clinicalDermatology, medicalAesthetics } from '@/data/siteContent';
-
-const clinicalDescriptions: Record<
-  string,
-  { benefit: string; description: string; icon: 'focus' | 'leaf' | 'path' | 'home' }
-> = {
-  'Acné y secuelas':
-    {
-      benefit: 'Menos brotes y mejor textura de piel.',
-      description: 'Abordaje integral para controlar inflamación y tratar marcas residuales.',
-      icon: 'focus',
-    },
-  'Rosácea y dermatitis':
-    {
-      benefit: 'Piel más estable y menos reactividad diaria.',
-      description: 'Plan médico para reducir episodios inflamatorios y reforzar barrera cutánea.',
-      icon: 'leaf',
-    },
-  'Control de lunares y lesiones cutáneas':
-    {
-      benefit: 'Seguimiento seguro y detección temprana.',
-      description: 'Evaluación periódica de lesiones pigmentadas y otras alteraciones cutáneas.',
-      icon: 'home',
-    },
-  'Melasma y pigmentaciones':
-    {
-      benefit: 'Tono más uniforme con plan de mantenimiento.',
-      description: 'Protocolos personalizados para despigmentar de forma gradual y sostenida.',
-      icon: 'path',
-    },
-};
-
-const aestheticsDescriptions: Record<
-  string,
-  { benefit: string; description: string; icon: 'focus' | 'leaf' | 'path' | 'home' }
-> = {
-  'Armonización facial': {
-    benefit: 'Rasgos equilibrados manteniendo tu expresión.',
-    description: 'Plan progresivo para mejorar proporciones sin cambios artificiales.',
-    icon: 'path',
-  },
-  'Toxina botulínica': {
-    benefit: 'Líneas dinámicas más suaves sin rigidez.',
-    description: 'Aplicación precisa en dosis personalizadas según gesto y anatomía.',
-    icon: 'focus',
-  },
-  'Rellenos con ácido hialurónico': {
-    benefit: 'Reposición de volumen con resultado natural.',
-    description: 'Definición de contornos y soporte estructural con criterio médico.',
-    icon: 'home',
-  },
-  'Bioestimulación de colágeno': {
-    benefit: 'Más firmeza y mejor calidad de piel.',
-    description: 'Estimulación gradual para sostener resultados en el tiempo.',
-    icon: 'leaf',
-  },
-  'Protocolos de calidad de piel': {
-    benefit: 'Piel más luminosa, hidratada y pareja.',
-    description: 'Combinación de técnicas según diagnóstico y objetivos reales.',
-    icon: 'focus',
-  },
-};
+import { getTreatmentsByCategory } from '@/data/treatments';
 
 export default function TratamientosPage() {
   return (
@@ -91,9 +31,11 @@ export default function TratamientosPage() {
             </Box>
 
             <Box sx={{ display: 'grid', gap: 1.9 }}>
-              {clinicalDermatology.map((item, index) => (
+              {getTreatmentsByCategory('dermatologia').map((treatment, index) => (
                 <Box
-                  key={item}
+                  component={Link}
+                  href={`/tratamientos/${treatment.slug}`}
+                  key={treatment.slug}
                   sx={(theme) => ({
                     display: 'grid',
                     gridTemplateColumns: { xs: '1fr', md: '68px minmax(0, 280px) minmax(0, 1fr)' },
@@ -105,6 +47,8 @@ export default function TratamientosPage() {
                     borderRadius: 1.5,
                     backgroundColor: 'background.paper',
                     minHeight: { md: 138 },
+                    textDecoration: 'none',
+                    cursor: 'pointer',
                     transition: 'transform 220ms ease, box-shadow 240ms ease',
                     '@media (hover: hover)': {
                       '&:hover': {
@@ -115,21 +59,21 @@ export default function TratamientosPage() {
                   })}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'space-between', md: 'center' }, gap: 2 }}>
-                    <LineIcon name={clinicalDescriptions[item].icon} />
+                    <LineIcon name={treatment.icon} />
                     <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
                       {String(index + 1).padStart(2, '0')}
                     </Box>
                   </Box>
                   <Box sx={{ display: 'grid', gap: 0.65 }}>
                     <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.16rem' }}>
-                      {item}
+                      {treatment.title}
                     </Box>
                     <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.brown', fontWeight: 500 }}>
-                      {clinicalDescriptions[item].benefit}
+                      {treatment.benefits[0]}
                     </Box>
                   </Box>
                   <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray', maxWidth: 470 }}>
-                    {clinicalDescriptions[item].description}
+                    {treatment.shortDescription}
                   </Box>
                 </Box>
               ))}
@@ -159,9 +103,11 @@ export default function TratamientosPage() {
             </Box>
 
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2.2 }}>
-              {medicalAesthetics.map((item, index) => (
+              {getTreatmentsByCategory('estetica').map((treatment, index) => (
                 <Box
-                  key={item}
+                  component={Link}
+                  href={`/tratamientos/${treatment.slug}`}
+                  key={treatment.slug}
                   sx={(theme) => ({
                     display: 'grid',
                     gap: 1.05,
@@ -170,6 +116,8 @@ export default function TratamientosPage() {
                     borderColor: 'brand.beige',
                     borderRadius: 1.5,
                     backgroundColor: 'background.default',
+                    textDecoration: 'none',
+                    cursor: 'pointer',
                     transition: 'transform 220ms ease, box-shadow 240ms ease',
                     '@media (hover: hover)': {
                       '&:hover': {
@@ -180,19 +128,19 @@ export default function TratamientosPage() {
                   })}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
-                    <LineIcon name={aestheticsDescriptions[item].icon} />
+                    <LineIcon name={treatment.icon} />
                     <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
                       {String(index + 1).padStart(2, '0')}
                     </Box>
                   </Box>
                   <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.2rem' }}>
-                    {item}
+                    {treatment.title}
                   </Box>
                   <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.brown', fontWeight: 500 }}>
-                    {aestheticsDescriptions[item].benefit}
+                    {treatment.benefits[0]}
                   </Box>
                   <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray' }}>
-                    {aestheticsDescriptions[item].description}
+                    {treatment.shortDescription}
                   </Box>
                 </Box>
               ))}

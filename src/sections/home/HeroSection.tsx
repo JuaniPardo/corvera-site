@@ -45,8 +45,8 @@ export default function HeroSection() {
           <Box sx={{ gridColumn: { lg: 'span 6' } }}>
             <Box
               component="img"
-              src="/patricia-portrait.svg"
-              alt="Retrato ilustrado de la Dra. Patricia Corvera"
+              src="/paty01.webp"
+              alt="Retrato de la Dra. Patricia Corvera"
               sx={(theme) => ({
                 width: '100%',
                 height: 'auto',

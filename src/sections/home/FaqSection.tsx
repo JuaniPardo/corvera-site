@@ -9,8 +9,8 @@ import { faqItems } from '@/data/siteContent';
 
 export default function FaqSection() {
   return (
-    <SectionBlock>
-      <Box sx={{ display: 'grid', gap: 5 }}>
+    <SectionBlock size="compact">
+      <Box sx={{ display: 'grid', gap: 4.5 }}>
         <Reveal>
           <Box sx={{ display: 'grid', gap: 2, maxWidth: 760 }}>
             <Box component="h2" sx={typeStyles.h2}>
@@ -23,7 +23,9 @@ export default function FaqSection() {
         </Reveal>
 
         <Reveal delay={0.04}>
-          <FaqList items={faqItems.slice(0, 4)} />
+          <Box sx={{ maxWidth: 980 }}>
+            <FaqList items={faqItems.slice(0, 4)} />
+          </Box>
         </Reveal>
       </Box>
     </SectionBlock>

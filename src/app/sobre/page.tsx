@@ -34,7 +34,7 @@ export default function SobrePage() {
             <Box sx={{ gridColumn: { lg: 'span 5' } }}>
               <Box
                 component="img"
-                src="/patricia-portrait.svg"
+                src="/paty02.webp"
                 alt="Retrato de la Dra. Patricia Corvera"
                 sx={{
                   width: '100%',

@@ -27,7 +27,7 @@ export default function ActionLink({
         border: variant === 'primary' ? '1px solid transparent' : `1px solid ${theme.palette.brand.beige}`,
         backgroundColor:
           variant === 'primary' ? theme.palette.brand.petroleum : theme.palette.background.paper,
-        color: variant === 'primary' ? theme.palette.primary.contrastText : theme.palette.brand.brown,
+        color: variant === 'primary' ? '#FFFFFF' : theme.palette.brand.brown,
         boxShadow:
           variant === 'primary' ? `0 10px 24px ${alpha(theme.palette.brand.petroleum, 0.24)}` : 'none',
         fontSize: variant === 'primary' ? '0.98rem' : '0.95rem',

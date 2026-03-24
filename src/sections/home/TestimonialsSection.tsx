@@ -1,12 +1,23 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
 import { alpha } from '@mui/material/styles';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 import { testimonials } from '@/data/siteContent';
+
+// Genera iniciales del nombre para el avatar fallback
+function getInitials(name: string): string {
+  return name
+    .split(' ')
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+}
 
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -100,28 +111,69 @@ export default function TestimonialsSection() {
                   {testimonials[activeIndex].quote}
                 </Box>
 
-                <Box sx={{ textAlign: 'center' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}>
+                  {/* Avatar con imagen o iniciales */}
                   <Box
-                    component="cite"
                     sx={{
-                      ...typeStyles.body2,
-                      fontStyle: 'normal',
-                      fontWeight: 600,
-                      color: 'brand.brown',
-                      display: 'block',
+                      width: 56,
+                      height: 56,
+                      borderRadius: '50%',
+                      overflow: 'hidden',
+                      flexShrink: 0,
+                      backgroundColor: 'brand.rose',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: 2,
+                      borderColor: 'brand.beige',
                     }}
                   >
-                    {testimonials[activeIndex].author}
+                    {testimonials[activeIndex].image ? (
+                      <Image
+                        src={testimonials[activeIndex].image}
+                        alt={testimonials[activeIndex].author}
+                        width={56}
+                        height={56}
+                        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                      />
+                    ) : (
+                      <Box
+                        component="span"
+                        sx={{
+                          ...typeStyles.body1,
+                          fontWeight: 600,
+                          color: 'white',
+                          fontSize: '1.1rem',
+                        }}
+                      >
+                        {getInitials(testimonials[activeIndex].author)}
+                      </Box>
+                    )}
                   </Box>
-                  <Box
-                    component="span"
-                    sx={{
-                      ...typeStyles.body2,
-                      fontSize: '0.875rem',
-                      color: 'brand.rose',
-                    }}
-                  >
-                    {testimonials[activeIndex].treatment}
+
+                  <Box sx={{ textAlign: 'left' }}>
+                    <Box
+                      component="cite"
+                      sx={{
+                        ...typeStyles.body2,
+                        fontStyle: 'normal',
+                        fontWeight: 600,
+                        color: 'brand.brown',
+                        display: 'block',
+                      }}
+                    >
+                      {testimonials[activeIndex].author}
+                    </Box>
+                    <Box
+                      component="span"
+                      sx={{
+                        ...typeStyles.body2,
+                        fontSize: '0.875rem',
+                        color: 'brand.rose',
+                      }}
+                    >
+                      {testimonials[activeIndex].treatment}
+                    </Box>
                   </Box>
                 </Box>
               </Box>

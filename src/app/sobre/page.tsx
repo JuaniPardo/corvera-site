@@ -1,21 +1,27 @@
-'use client';
-
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
+import ActionLink from '@/components/ui/ActionLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 import PageHeading from '@/sections/shared/PageHeading';
+
+const differentials = [
+  'Formación médica sólida',
+  'Enfoque personalizado',
+  'Resultados naturales',
+  'Actualización constante',
+];
 
 export default function SobrePage() {
   return (
     <>
       <PageHeading
         title="Sobre la Dra. Patricia Corvera"
-        description="Una práctica centrada en criterio médico, escucha activa y resultados naturales a largo plazo."
+        description="Una mirada médica aplicada al cuidado de la piel."
         compact
       />
 
-      <SectionBlock size="compact">
+      <SectionBlock size="tight">
         <Box
           sx={{
             display: 'grid',
@@ -30,33 +36,108 @@ export default function SobrePage() {
                 component="img"
                 src="/patricia-portrait.svg"
                 alt="Retrato de la Dra. Patricia Corvera"
-                sx={(theme) => ({
+                sx={{
                   width: '100%',
                   height: 'auto',
                   borderRadius: 2,
-                  border: `1px solid ${theme.palette.brand.beige}`,
-                })}
+                  border: 1,
+                  borderColor: 'brand.beige',
+                }}
               />
             </Box>
           </Reveal>
 
           <Reveal delay={0.06}>
-            <Box sx={{ gridColumn: { lg: 'span 7' }, display: 'grid', gap: 2.5 }}>
-              <Box component="h2" sx={typeStyles.h2}>
-                Historia y filosofía de trabajo
+            <Box sx={{ gridColumn: { lg: 'span 7' }, display: 'grid', gap: 4 }}>
+              <Box sx={{ display: 'grid', gap: 1.5 }}>
+                <Box component="h2" sx={{ ...typeStyles.h3, color: 'brand.brown' }}>
+                  Intro
+                </Box>
+                <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
+                  La Dra. Patricia Corvera es médica formada con una sólida base clínica y una trayectoria que integra la dermatología con la estética médica. Su práctica se apoya en la experiencia hospitalaria, la formación académica y la actualización constante.
+                </Box>
               </Box>
-              <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-                La práctica combina experiencia clínica y medicina estética con una mirada responsable: indicar solo lo que aporta valor real en cada caso.
-              </Box>
-              <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-                La consulta se basa en diagnóstico individual, comunicación clara y definición conjunta de objetivos posibles.
-              </Box>
-              <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-                El seguimiento posterior es parte central del proceso, para sostener resultados y cuidar la salud de la piel en el tiempo.
+
+              <Box sx={{ display: 'grid', gap: 1.5 }}>
+                <Box component="h2" sx={{ ...typeStyles.h3, color: 'brand.brown' }}>
+                  Historia
+                </Box>
+                <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
+                  Realizó su formación médica y residencia en pediatría en la Universidad de Buenos Aires. Luego orientó su formación hacia la dermatología y la medicina estética, incorporando nuevas herramientas para tratamientos personalizados.
+                </Box>
               </Box>
             </Box>
           </Reveal>
         </Box>
+      </SectionBlock>
+
+      <SectionBlock size="compact" background="background.paper">
+        <Box sx={{ display: 'grid', gap: 4 }}>
+          <Reveal>
+            <Box component="h2" sx={typeStyles.h2}>
+              Diferenciales
+            </Box>
+          </Reveal>
+
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' },
+              gap: 2.5,
+            }}
+          >
+            {differentials.map((item, index) => (
+              <Reveal key={item} delay={0.03 * index}>
+                <Box
+                  sx={{
+                    p: { xs: 3, md: 3.5 },
+                    borderRadius: 1.5,
+                    border: 1,
+                    borderColor: 'brand.beige',
+                    backgroundColor: 'background.default',
+                    display: 'grid',
+                    gap: 1.2,
+                    minHeight: 132,
+                  }}
+                >
+                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
+                    {String(index + 1).padStart(2, '0')}
+                  </Box>
+                  <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.22rem' }}>
+                    {item}
+                  </Box>
+                </Box>
+              </Reveal>
+            ))}
+          </Box>
+        </Box>
+      </SectionBlock>
+
+      <SectionBlock size="tight">
+        <Reveal>
+          <Box
+            sx={{
+              p: { xs: 3.5, md: 5 },
+              borderRadius: 2,
+              border: 1,
+              borderColor: 'brand.beige',
+              backgroundColor: 'brand.nude',
+              display: 'grid',
+              gap: 2.5,
+              maxWidth: 860,
+            }}
+          >
+            <Box component="h2" sx={typeStyles.h2}>
+              Filosofía
+            </Box>
+            <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
+              Cada tratamiento es una decisión médica. El objetivo no es transformar, sino acompañar procesos de mejora respetando la identidad del paciente.
+            </Box>
+            <Box sx={{ pt: 0.5 }}>
+              <ActionLink href="/contacto" label="Solicitar turno" />
+            </Box>
+          </Box>
+        </Reveal>
       </SectionBlock>
     </>
   );

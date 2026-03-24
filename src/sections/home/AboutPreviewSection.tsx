@@ -40,13 +40,7 @@ export default function AboutPreviewSection() {
               Sobre la Dra. Patricia Corvera
             </Box>
             <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-              Medicina estética orientada por evaluación clínica, criterio profesional y planificación realista.
-            </Box>
-            <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-              El objetivo es mejorar sin transformar, buscando resultados sutiles y coherentes con cada rostro.
-            </Box>
-            <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
-              Cada tratamiento incluye indicaciones claras y seguimiento posterior para acompañar la evolución.
+              Médica con formación clínica y especialización en dermatología y medicina estética. Enfoque personalizado y resultados naturales.
             </Box>
             <Box
               component={Link}
@@ -59,7 +53,7 @@ export default function AboutPreviewSection() {
                 '&:hover': { color: theme.palette.brand.rose },
               })}
             >
-              Conocer su enfoque
+              Conocer más
             </Box>
           </Box>
         </Reveal>

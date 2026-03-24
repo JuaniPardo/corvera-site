@@ -83,7 +83,7 @@ export default function TestimonialsSection() {
                   userSelect: 'none',
                 }}
               >
-                "
+                &quot;
               </Box>
 
               <Box

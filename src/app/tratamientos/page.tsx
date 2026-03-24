@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
-import { alpha } from '@mui/material/styles';
 import ActionLink from '@/components/ui/ActionLink';
 import LineIcon from '@/components/ui/LineIcon';
 import Reveal from '@/components/ui/Reveal';
@@ -12,6 +11,9 @@ import PageHeading from '@/sections/shared/PageHeading';
 import { getTreatmentsByCategory } from '@/data/treatments';
 
 export default function TratamientosPage() {
+  const clinicalTreatments = getTreatmentsByCategory('dermatologia');
+  const aestheticTreatments = getTreatmentsByCategory('estetica');
+
   return (
     <>
       <PageHeading
@@ -31,12 +33,12 @@ export default function TratamientosPage() {
             </Box>
 
             <Box sx={{ display: 'grid', gap: 1.9 }}>
-              {getTreatmentsByCategory('dermatologia').map((treatment, index) => (
+              {clinicalTreatments.map((treatment, index) => (
                 <Box
                   component={Link}
                   href={`/tratamientos/${treatment.slug}`}
                   key={treatment.slug}
-                  sx={(theme) => ({
+                  sx={{
                     display: 'grid',
                     gridTemplateColumns: { xs: '1fr', md: '68px minmax(0, 280px) minmax(0, 1fr)' },
                     alignItems: { md: 'center' },
@@ -53,10 +55,10 @@ export default function TratamientosPage() {
                     '@media (hover: hover)': {
                       '&:hover': {
                         transform: 'scale(1.01)',
-                        boxShadow: `0 15px 28px ${alpha(theme.palette.brand.petroleum, 0.1)}`,
+                        boxShadow: 4,
                       },
                     },
-                  })}
+                  }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'space-between', md: 'center' }, gap: 2 }}>
                     <LineIcon name={treatment.icon} />
@@ -103,12 +105,12 @@ export default function TratamientosPage() {
             </Box>
 
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2.2 }}>
-              {getTreatmentsByCategory('estetica').map((treatment, index) => (
+              {aestheticTreatments.map((treatment, index) => (
                 <Box
                   component={Link}
                   href={`/tratamientos/${treatment.slug}`}
                   key={treatment.slug}
-                  sx={(theme) => ({
+                  sx={{
                     display: 'grid',
                     gap: 1.05,
                     p: { xs: 2.25, md: 2.5 },
@@ -122,10 +124,10 @@ export default function TratamientosPage() {
                     '@media (hover: hover)': {
                       '&:hover': {
                         transform: 'scale(1.012)',
-                        boxShadow: `0 16px 30px ${alpha(theme.palette.brand.petroleum, 0.11)}`,
+                        boxShadow: 4,
                       },
                     },
-                  })}
+                  }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
                     <LineIcon name={treatment.icon} />

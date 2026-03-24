@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   contact: {
     phone: '+54 9 11 3887 7639',
     whatsapp: '5491138877639',
-    email: 'contacto@dracorvera.com',
+    email: 'consultorioscorvera@gmail.com',
   },
   location: {
     address: 'Urquiza 963, Escobar',

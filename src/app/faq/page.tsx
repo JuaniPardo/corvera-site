@@ -17,10 +17,10 @@ export default function FaqPage() {
       />
 
       <SectionBlock size="compact">
-        <Box sx={{ maxWidth: 980, display: 'grid', gap: 4.5 }}>
+        <Box sx={{ maxWidth: 980, display: 'grid', gap: 5.25 }}>
           {faqGroups.map((group, groupIndex) => (
             <Reveal key={group.title} delay={groupIndex * 0.04}>
-              <Box sx={{ display: 'grid', gap: 1.3 }}>
+              <Box sx={{ display: 'grid', gap: 1.55 }}>
                 <Box component="h2" sx={{ ...typeStyles.h3, fontSize: '1.3rem', color: 'brand.brown' }}>
                   {group.title}
                 </Box>

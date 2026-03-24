@@ -1,6 +1,7 @@
 'use client';
 
 import { Box } from '@mui/system';
+import { alpha } from '@mui/material/styles';
 
 export type FaqItem = {
   question: string;
@@ -28,12 +29,12 @@ export default function FaqList({
               listStyle: 'none',
               cursor: 'pointer',
               px: 0.5,
-              py: { xs: 2.1, md: 2.4 },
+              py: { xs: 2.2, md: 2.55 },
               fontFamily: 'var(--font-heading), serif',
               fontSize: { xs: '1.18rem', md: '1.24rem' },
               lineHeight: 1.35,
               color: theme.palette.brand.text,
-              transition: 'background-color 180ms ease, color 180ms ease',
+              transition: 'background-color 220ms ease, color 220ms ease, padding-left 220ms ease',
               display: 'grid',
               gridTemplateColumns: 'minmax(0, 1fr) auto',
               alignItems: 'center',
@@ -49,14 +50,16 @@ export default function FaqList({
               fontWeight: 300,
               lineHeight: 1,
               color: theme.palette.brand.gray,
-              transition: 'color 180ms ease, transform 180ms ease',
+              transition: 'color 220ms ease, transform 220ms ease',
               transform: 'translateY(-1px)',
             },
             '& > summary:hover': {
-              backgroundColor: theme.palette.brand.nude,
+              backgroundColor: alpha(theme.palette.brand.nude, 0.72),
+              paddingLeft: theme.spacing(1.2),
             },
             '&[open] > summary': {
               color: theme.palette.brand.brown,
+              backgroundColor: alpha(theme.palette.brand.nude, 0.45),
             },
             '&[open] > summary::after': {
               content: '"−"',
@@ -82,7 +85,7 @@ export default function FaqList({
             className="faq-answer"
             sx={(theme) => ({
               px: 0.5,
-              pb: { xs: 2.2, md: 2.5 },
+              pb: { xs: 2.4, md: 2.7 },
               color: theme.palette.brand.gray,
               fontSize: '1rem',
               lineHeight: 1.7,

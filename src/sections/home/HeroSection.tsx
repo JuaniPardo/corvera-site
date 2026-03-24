@@ -3,12 +3,13 @@
 import { typeStyles } from '@/theme/typeStyles';
 import { Box } from '@mui/system';
 import ActionLink from '@/components/ui/ActionLink';
+import { alpha } from '@mui/material/styles';
 import Reveal from '@/components/ui/Reveal';
 import SectionBlock from '@/components/ui/SectionBlock';
 
 export default function HeroSection() {
   return (
-    <SectionBlock size="compact">
+    <SectionBlock size="compact" background="background.paper">
       <Box
         sx={{
           display: 'grid',
@@ -18,8 +19,19 @@ export default function HeroSection() {
         }}
       >
         <Reveal>
-          <Box sx={{ gridColumn: { lg: 'span 6' }, display: 'grid', gap: 3.25 }}>
-            <Box component="h1" sx={{ ...typeStyles.h1, maxWidth: 640 }}>
+          <Box
+            sx={(theme) => ({
+              gridColumn: { lg: 'span 7' },
+              display: 'grid',
+              gap: 3.25,
+              p: { xs: 0, md: 4 },
+              borderRadius: { md: 2 },
+              border: { md: `1px solid ${theme.palette.brand.beige}` },
+              backgroundColor: { md: alpha(theme.palette.brand.petroleum, 0.055) },
+              boxShadow: { md: `0 20px 44px ${alpha(theme.palette.brand.petroleum, 0.11)}` },
+            })}
+          >
+            <Box component="h1" sx={{ ...typeStyles.h1, maxWidth: 680, fontSize: 'clamp(2.24rem, 4.9vw, 4.15rem)' }}>
               Resultados naturales para tu piel, con criterio médico en cada decisión.
             </Box>
 
@@ -34,7 +46,7 @@ export default function HeroSection() {
               Consulta médica personalizada para tratar, prevenir y mejorar la piel con seguridad clínica y un plan realista.
             </Box>
 
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.1 }}>
               {['Diagnóstico médico', 'Técnica conservadora', 'Seguimiento clínico'].map((item) => (
                 <Box
                   component="span"
@@ -57,7 +69,7 @@ export default function HeroSection() {
               ))}
             </Box>
 
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.6 }}>
               <ActionLink href="/contacto" label="Reservar consulta de evaluación" variant="primary" />
               <ActionLink href="/tratamientos" label="Ver tratamientos" variant="secondary" />
             </Box>
@@ -65,7 +77,7 @@ export default function HeroSection() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <Box sx={{ gridColumn: { lg: 'span 6' }, position: 'relative' }}>
+          <Box sx={{ gridColumn: { lg: 'span 5' }, position: 'relative' }}>
             <Box
               component="img"
               src="/paty01.webp"
@@ -76,11 +88,11 @@ export default function HeroSection() {
                 borderRadius: 2,
                 border: `1px solid ${theme.palette.brand.beige}`,
                 backgroundColor: theme.palette.background.paper,
-                boxShadow: '0 18px 34px rgba(115, 78, 64, 0.08)',
+                boxShadow: `0 24px 46px ${alpha(theme.palette.brand.petroleum, 0.16)}`,
               })}
             />
             <Box
-              sx={{
+              sx={(theme) => ({
                 position: { xs: 'static', md: 'absolute' },
                 left: { md: 18 },
                 bottom: { md: 18 },
@@ -93,7 +105,8 @@ export default function HeroSection() {
                 backgroundColor: 'background.paper',
                 display: 'grid',
                 gap: 0.7,
-              }}
+                boxShadow: `0 14px 28px ${alpha(theme.palette.brand.petroleum, 0.13)}`,
+              })}
             >
               <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
                 Primera consulta

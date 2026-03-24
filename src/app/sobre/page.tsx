@@ -45,20 +45,19 @@ export default function SobrePage() {
               <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 590 }}>
                 Se formó en Bolivia y consolidó su desarrollo en Argentina, incluyendo residencia en pediatría en la Universidad de Buenos Aires y práctica médica orientada a seguridad y naturalidad.
               </Box>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.1 }}>
-                {['Residencia UBA', 'Experiencia hospitalaria', 'Actualización continua'].map((item) => (
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, minmax(0, 1fr))' }, gap: 1.05, maxWidth: 640 }}>
+                {['Formación inicial en Bolivia', 'Residencia UBA', 'Práctica clínica en Escobar'].map((item) => (
                   <Box
                     key={item}
-                    component="span"
                     sx={{
-                      px: 1.35,
-                      py: 0.7,
+                      px: 1.2,
+                      py: 1.15,
                       border: 1,
                       borderColor: 'brand.beige',
                       borderRadius: 1,
                       backgroundColor: 'background.paper',
-                      fontSize: '0.8rem',
-                      lineHeight: 1.2,
+                      fontSize: '0.78rem',
+                      lineHeight: 1.35,
                       color: 'brand.brown',
                       fontWeight: 500,
                     }}
@@ -71,7 +70,7 @@ export default function SobrePage() {
           </Reveal>
 
           <Reveal>
-            <Box sx={{ gridColumn: { lg: 'span 6' }, display: 'grid', gap: 1.6 }}>
+            <Box sx={{ gridColumn: { lg: 'span 6' }, position: 'relative', minHeight: { lg: 540 }, pb: { xs: 0, lg: 8 } }}>
               <Box
                 component="img"
                 src="/paty02.webp"
@@ -90,8 +89,12 @@ export default function SobrePage() {
                 src="/paty01.webp"
                 alt="Detalle de la Dra. Patricia Corvera en consulta"
                 sx={{
-                  width: { xs: '58%', sm: '44%' },
-                  justifySelf: 'end',
+                  width: { xs: '58%', sm: '42%' },
+                  position: { xs: 'static', lg: 'absolute' },
+                  right: { lg: -20 },
+                  bottom: { lg: 0 },
+                  mt: { xs: 1.6, lg: 0 },
+                  justifySelf: { xs: 'end', lg: 'auto' },
                   height: 'auto',
                   borderRadius: 1.6,
                   border: 1,
@@ -164,15 +167,19 @@ export default function SobrePage() {
               borderColor: 'brand.petroleum',
               backgroundColor: 'brand.petroleum',
               display: 'grid',
-              gap: 2.5,
-              maxWidth: 860,
+              gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) auto' },
+              alignItems: { md: 'end' },
+              gap: 2.6,
+              maxWidth: 980,
             }}
           >
-            <Box component="h2" sx={{ ...typeStyles.h2, color: 'background.paper' }}>
-              Filosofía
-            </Box>
-            <Box component="p" sx={{ ...typeStyles.body1, color: 'background.paper', opacity: 0.9 }}>
-              Cada tratamiento es una decisión médica. El objetivo no es transformar, sino acompañar procesos de mejora respetando la identidad del paciente.
+            <Box sx={{ display: 'grid', gap: 1.35, maxWidth: 700 }}>
+              <Box component="h2" sx={{ ...typeStyles.h2, color: 'background.paper' }}>
+                Filosofía
+              </Box>
+              <Box component="p" sx={{ ...typeStyles.body1, color: 'background.paper', opacity: 0.9 }}>
+                Cada tratamiento es una decisión médica. El objetivo no es transformar, sino acompañar procesos de mejora respetando la identidad del paciente.
+              </Box>
             </Box>
             <Box sx={{ pt: 0.5 }}>
               <ActionLink href="/contacto" label="Solicitar consulta médica" variant="secondary" />

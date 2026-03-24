@@ -81,42 +81,46 @@ export default function TratamientosPage() {
 
       <SectionBlock size="compact">
         <Reveal>
-          <Box sx={{ display: 'grid', gap: 3.5, maxWidth: 980 }}>
-            <Box component="h2" sx={typeStyles.h2}>
+          <Box sx={{ display: 'grid', gap: 3.2, maxWidth: 1020 }}>
+            <Box component="h2" sx={{ ...typeStyles.h2, fontSize: 'clamp(2rem, 3.15vw, 3.15rem)' }}>
               Dermatología clínica
             </Box>
             <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 820, mb: 0.7 }}>
               Tratamientos para resolver problemas frecuentes de piel con diagnóstico preciso y seguimiento continuo.
             </Box>
 
-            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2.2 }}>
+            <Box sx={{ display: 'grid', gap: 1.9 }}>
               {clinicalDermatology.map((item, index) => (
                 <Box
                   key={item}
                   sx={{
                     display: 'grid',
-                    gap: 1.05,
-                    p: { xs: 2.4, md: 2.8 },
+                    gridTemplateColumns: { xs: '1fr', md: '68px minmax(0, 280px) minmax(0, 1fr)' },
+                    alignItems: { md: 'center' },
+                    gap: { xs: 1, md: 2.2 },
+                    p: { xs: 2.25, md: 2.4 },
                     border: 1,
                     borderColor: 'brand.beige',
                     borderRadius: 1.5,
                     backgroundColor: 'background.paper',
-                    minHeight: 198,
+                    minHeight: { md: 138 },
                   }}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'space-between', md: 'center' }, gap: 2 }}>
                     <LineIcon name={clinicalDescriptions[item].icon} />
                     <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
                       {String(index + 1).padStart(2, '0')}
                     </Box>
                   </Box>
-                  <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.2rem' }}>
-                    {item}
+                  <Box sx={{ display: 'grid', gap: 0.65 }}>
+                    <Box component="h3" sx={{ ...typeStyles.h3, fontSize: '1.16rem' }}>
+                      {item}
+                    </Box>
+                    <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.brown', fontWeight: 500 }}>
+                      {clinicalDescriptions[item].benefit}
+                    </Box>
                   </Box>
-                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.brown', fontWeight: 500 }}>
-                    {clinicalDescriptions[item].benefit}
-                  </Box>
-                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray' }}>
+                  <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray', maxWidth: 470 }}>
                     {clinicalDescriptions[item].description}
                   </Box>
                 </Box>
@@ -139,7 +143,7 @@ export default function TratamientosPage() {
               backgroundColor: 'background.paper',
             }}
           >
-            <Box component="h2" sx={typeStyles.h2}>
+            <Box component="h2" sx={{ ...typeStyles.h2, fontSize: 'clamp(2rem, 3.15vw, 3.15rem)' }}>
               Estética médica
             </Box>
             <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 860 }}>

@@ -126,25 +126,36 @@ export const medicalAesthetics = [
   'Protocolos de calidad de piel',
 ];
 
-export const testimonials = [
+export interface Testimonial {
+  quote: string;
+  author: string;
+  treatment: string;
+  image?: string; // URL de la imagen de la paciente (opcional)
+}
+
+export const testimonials: Testimonial[] = [
   {
     quote: 'Llegué con muchas dudas y me fui con un plan claro. Los resultados fueron graduales, naturales. Nadie notó "qué me hice", solo que me veía mejor.',
     author: 'María L.',
     treatment: 'Armonización facial',
+    // image: '/images/testimonials/maria.jpg',
   },
   {
     quote: 'Después de años luchando con el acné, encontré un enfoque médico real. La Dra. Corvera me explicó cada paso y hoy mi piel está mejor que nunca.',
     author: 'Carolina S.',
     treatment: 'Acné y secuelas',
+    // image: '/images/testimonials/carolina.jpg',
   },
   {
     quote: 'Me gustó la honestidad desde la primera consulta. Me dijo qué era posible y qué no, sin venderme tratamientos innecesarios.',
     author: 'Luciana M.',
     treatment: 'Bioestimulación',
+    // image: '/images/testimonials/luciana.jpg',
   },
   {
     quote: 'El seguimiento post-tratamiento marca la diferencia. Sentí que estaba en manos de una profesional que realmente se preocupa por sus pacientes.',
     author: 'Valentina R.',
     treatment: 'Rellenos con ácido hialurónico',
+    // image: '/images/testimonials/valentina.jpg',
   },
 ];

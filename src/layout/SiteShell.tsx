@@ -3,6 +3,7 @@
 import { Box } from '@mui/system';
 import MainHeader from './MainHeader';
 import MainFooter from './MainFooter';
+import WhatsAppButton from './WhatsAppButton';
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
         {children}
       </Box>
       <MainFooter />
+      <WhatsAppButton />
     </Box>
   );
 }

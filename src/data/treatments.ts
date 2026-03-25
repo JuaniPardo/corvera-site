@@ -6,7 +6,7 @@ export interface Treatment {
   category: 'dermatologia' | 'estetica';
   categoryLabel: string;
   icon: LineIconName;
-  image?: string; // URL de imagen representativa del tratamiento
+  image: string; // URL de imagen representativa del tratamiento
   shortDescription: string;
   fullDescription: string;
   benefits: string[];
@@ -18,6 +18,8 @@ export interface Treatment {
   forWho: string[];
   faq: { question: string; answer: string }[];
 }
+
+export const TREATMENT_PLACEHOLDER_IMAGE = '/images/treatments/placeholder.svg';
 
 export const treatments: Treatment[] = [
   // Dermatología clínica
@@ -262,6 +264,7 @@ export const treatments: Treatment[] = [
     category: 'estetica',
     categoryLabel: 'Estética médica',
     icon: 'home',
+    image: TREATMENT_PLACEHOLDER_IMAGE,
     shortDescription: 'Definición de contornos y soporte estructural con criterio médico.',
     fullDescription:
       'El ácido hialurónico permite reponer volúmenes perdidos, definir contornos y mejorar la calidad de la piel. Seleccionamos el tipo de producto según la zona y objetivo, priorizando resultados naturales que mejoren sin transformar.',
@@ -300,6 +303,7 @@ export const treatments: Treatment[] = [
     category: 'estetica',
     categoryLabel: 'Estética médica',
     icon: 'leaf',
+    image: TREATMENT_PLACEHOLDER_IMAGE,
     shortDescription: 'Estimulación gradual para sostener resultados en el tiempo.',
     fullDescription:
       'Los tratamientos de bioestimulación activan la producción natural de colágeno, mejorando firmeza, elasticidad y calidad de la piel de forma progresiva. Los resultados se construyen con el tiempo y se mantienen de forma más duradera.',
@@ -338,6 +342,7 @@ export const treatments: Treatment[] = [
     category: 'estetica',
     categoryLabel: 'Estética médica',
     icon: 'focus',
+    image: TREATMENT_PLACEHOLDER_IMAGE,
     shortDescription: 'Combinación de técnicas según diagnóstico y objetivos reales.',
     fullDescription:
       'Los protocolos de calidad de piel combinan diferentes técnicas (peelings, microagujas, luz pulsada, entre otros) de forma personalizada para mejorar textura, luminosidad, poros e hidratación. El plan se adapta a las necesidades específicas de cada piel.',

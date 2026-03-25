@@ -47,24 +47,32 @@ export default function HeroSection() {
             </Box>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.1 }}>
-              {['Diagnóstico médico', 'Técnica conservadora', 'Seguimiento clínico'].map((item) => (
+              {['Diagnóstico médico', 'Técnica conservadora', 'Seguimiento clínico'].map((item, index, array) => (
                 <Box
                   component="span"
                   key={item}
-                  sx={{
-                    px: 1.4,
-                    py: 0.7,
-                    borderRadius: 1,
-                    border: 1,
-                    borderColor: 'brand.beige',
-                    backgroundColor: 'background.paper',
-                    fontSize: '0.82rem',
-                    color: 'brand.brown',
+                  sx={(theme) => ({
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    fontSize: '0.85rem',
+                    color: theme.palette.brand.gray,
                     fontWeight: 500,
-                    lineHeight: 1.2,
-                  }}
+                    lineHeight: 1.3,
+                    letterSpacing: '0.02em',
+                  })}
                 >
                   {item}
+                  {index < array.length - 1 && (
+                    <Box
+                      component="span"
+                      sx={(theme) => ({
+                        mx: 0.8,
+                        opacity: 0.5,
+                      })}
+                    >
+                      ·
+                    </Box>
+                  )}
                 </Box>
               ))}
             </Box>

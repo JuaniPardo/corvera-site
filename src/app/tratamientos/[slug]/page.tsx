@@ -48,11 +48,11 @@ export default async function TreatmentPage({ params }: TreatmentPageProps) {
             sx={{
               display: 'grid',
               gridTemplateColumns: { xs: '1fr', lg: 'repeat(12, minmax(0, 1fr))' },
-              gap: { xs: 2.6, lg: 4.4 },
+              gap: { xs: 2.3, lg: 4.4 },
               alignItems: 'start',
             }}
           >
-            <Box sx={{ gridColumn: { lg: 'span 7' }, display: 'grid', gap: 1.4 }}>
+            <Box sx={{ gridColumn: { lg: 'span 7' }, display: 'grid', gap: 1.35 }}>
               <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.rose', fontWeight: 500 }}>
                 {treatment.categoryLabel}
               </Box>
@@ -62,12 +62,47 @@ export default async function TreatmentPage({ params }: TreatmentPageProps) {
               <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 700, fontWeight: 500 }}>
                 {treatment.shortDescription}
               </Box>
-              <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray', maxWidth: 720 }}>
-                {treatment.fullDescription}
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.9, alignItems: 'center' }}>
+                {['Plan personalizado', 'Resultados naturales', 'Seguimiento médico'].map((item, index) => (
+                  <Box
+                    key={item}
+                    component="span"
+                    sx={{
+                      ...typeStyles.body2,
+                      fontSize: { xs: '0.92rem', md: '0.9rem' },
+                      color: 'brand.brown',
+                      opacity: 0.9,
+                      '&::before': index === 0 ? undefined : {
+                        content: '"•"',
+                        color: 'brand.beige',
+                        mx: 0.7,
+                      },
+                    }}
+                  >
+                    {item}
+                  </Box>
+                ))}
+              </Box>
+              <Box sx={{ display: 'flex', gap: 1.2, alignItems: 'center', flexWrap: 'wrap', pt: 0.4 }}>
+                <ActionLink href="/contacto" label="Agendar consulta" variant="primary" />
+                <Box
+                  component="a"
+                  href="/tratamientos"
+                  sx={{
+                    ...typeStyles.body2,
+                    color: 'brand.brown',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '0.22em',
+                    textDecorationColor: 'brand.beige',
+                    fontWeight: 500,
+                  }}
+                >
+                  Ver todos los tratamientos
+                </Box>
               </Box>
             </Box>
 
-            <Box sx={{ gridColumn: { lg: 'span 5' }, display: 'grid', gap: 1.35 }}>
+            <Box sx={{ gridColumn: { lg: 'span 5' }, position: 'relative' }}>
               <Box
                 component="img"
                 src={treatment.image || TREATMENT_PLACEHOLDER_IMAGE}
@@ -78,34 +113,35 @@ export default async function TreatmentPage({ params }: TreatmentPageProps) {
                   height: 'auto',
                   aspectRatio: '16 / 10',
                   objectFit: 'cover',
-                  borderRadius: 1.25,
-                  border: 1,
-                  borderColor: 'brand.beige',
+                  borderRadius: 1.1,
                   backgroundColor: 'background.default',
                 }}
               />
               <Box
                 sx={{
                   display: 'grid',
-                  gap: 1.1,
-                  p: { xs: 2.05, md: 2.35 },
-                  borderRadius: 1.25,
-                  border: 1,
-                  borderColor: 'brand.beige',
+                  gap: 0.9,
+                  p: { xs: 1.4, md: 1.6 },
+                  position: { xs: 'static', lg: 'absolute' },
+                  left: { lg: 14 },
+                  right: { lg: 14 },
+                  bottom: { lg: 14 },
+                  mt: { xs: 1.15, lg: 0 },
+                  borderRadius: 1.05,
                   backgroundColor: 'background.paper',
+                  boxShadow: { xs: 'none', lg: 2 },
                 }}
               >
-                <Box component="h2" sx={{ ...typeStyles.h3, fontSize: '1.16rem' }}>
-                  Datos del procedimiento
-                </Box>
-                <Box component="p" sx={{ ...typeStyles.body2, color: 'brand.gray', fontSize: { xs: '1rem', md: '0.98rem' } }}>
-                  Definido según diagnóstico, objetivos y evolución clínica.
-                </Box>
                 <Box sx={{ display: 'grid' }}>
                   <InfoRow label="Duración" value={treatment.procedure.duration} />
                   <InfoRow label="Sesiones" value={treatment.procedure.sessions} />
                   <InfoRow label="Recuperación" value={treatment.procedure.recovery} />
                 </Box>
+              </Box>
+            </Box>
+            <Box sx={{ gridColumn: { lg: '1 / span 12' }, maxWidth: 920 }}>
+              <Box component="p" sx={{ ...typeStyles.body1, color: 'brand.gray' }}>
+                {treatment.fullDescription}
               </Box>
             </Box>
           </Box>
@@ -266,11 +302,11 @@ function InfoRow({ label, value }: { label: string; value: string }) {
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: 'minmax(96px, auto) minmax(0, 1fr)',
+        gridTemplateColumns: 'minmax(84px, auto) minmax(0, 1fr)',
         alignItems: 'baseline',
-        gap: 1.5,
-        py: 1.2,
-        borderTop: 1,
+        gap: 1.1,
+        py: 0.75,
+        borderTop: 0.8,
         borderColor: 'brand.beige',
       }}
     >
@@ -281,13 +317,13 @@ function InfoRow({ label, value }: { label: string; value: string }) {
           color: 'brand.gray',
           fontWeight: 600,
           textTransform: 'uppercase',
-          fontSize: { xs: '0.8rem', md: '0.74rem' },
-          letterSpacing: '0.05em',
+          fontSize: { xs: '0.74rem', md: '0.7rem' },
+          letterSpacing: '0.045em',
         }}
       >
         {label}
       </Box>
-      <Box component="span" sx={{ ...typeStyles.body1, color: 'brand.brown', fontWeight: 500, fontSize: { xs: '1.12rem', md: '1.05rem' } }}>
+      <Box component="span" sx={{ ...typeStyles.body1, color: 'brand.brown', fontWeight: 500, fontSize: { xs: '1rem', md: '0.95rem' } }}>
         {value}
       </Box>
     </Box>
